@@ -1,0 +1,166 @@
+##브라우저란?
+    브라우저는 사용자가 인터넷에 접속하여 웹 페이지를 볼 수 있게 해주는 소프트웨어 애플리케이션
+        1. 웹페이지 렌더링?  
+            - HTML 파싱과 DOM 생성 : 브라우저가 HTML 문서를 받아들이면 이를 파싱하여 DOM(Document Object Model) 트리를 생성
+                1. HTML 문서의 구조를 계층적인 트리 구조로 변환하는 과정
+                2. DOM(Document Object Model)이라고 불리며, HTML 문서의 요소(element), 속성(attribute), 텍스트 노드(text node) 등을 표현
+                    HTML 코드는 다음과 같은 구조를 가지고 있습니다.
+                                문서 (Document)
+                                html 요소 (html element)
+                                head 요소 (head element)
+                                title 요소 (title element)
+                                텍스트 노드 ("Example")
+                                body 요소 (body element)
+                                h1 요소 (h1 element)
+                                텍스트 노드 ("Hello, World!")
+                                p 요소 (p element)
+                                텍스트 노드 ("This is a paragraph.")
+
+
+            - CSS 파싱과 CSSOM 생성 : 브라우저가 CSS 파일을 파싱하여 CSSOM(CSS Object Model) 트리를 생성 
+                1. CSS 파싱 : CSS 파일을 읽고 해석하여 컴퓨터가 이해할 수 있는 구조로 변환하는 과정
+                            브라우저는 이를 파싱하여 CSSOM(CSS Object Model)이라고 불리는 트리 구조로 변환
+                2. CSSOM 생성 : HTML 문서의 DOM과 유사한 구조를 가지고 있으며, CSS 파일에 정의된 스타일 규칙과 선택자(selector)를 포함
+                            브라우저는 요소에 적용할 스타일을 결정하고, 화면에 어떻게 표시할지 결정
+            
+                3. CSS 파싱과 CSSOM 생성의 과정
+                    - CSS 파일 로드: 브라우저는 HTML 문서를 파싱하는 동안 <link> 태그나 <style> 태그를 통해 CSS 파일을 로드합니다.
+                    - CSS 파싱: 브라우저는 CSS 파일을 파싱하여 스타일 규칙, 선택자, 속성 등을 분석
+                    - CSSOM 생성: 분석된 스타일 규칙과 선택자를 기반으로 CSSOM 트리를 생성합니다. 
+                                이 트리는 HTML 문서의 요소와 스타일 규칙을 연결하는 구조를 가지고 있습니다.
+                    - 렌더 트리 생성: HTML 파싱과 CSS 파싱이 완료되면, 브라우저는 DOM과 CSSOM을 결합하여 렌더 트리(Render Tree)를 생성합니다. 
+                                이 트리는 실제 화면에 표시될 요소와 스타일을 포함
+<html 코드예제>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"> // UTF-8은 유니코드(Unicode)를 인코딩하는 방식 중 하나로, 전 세계의 거의 모든 문자를 나타낼 수 있는 인코딩 방식
+                                //charset은 "character set"의 줄임말로, 문서에서 사용되는 문자 집합을 나타냅니다. 
+                                "UTF-8"은 대표적인 문자 인코딩 방식 중 하나인 UTF-8을 지정하는 것을 의미
+        <title>Example</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1>Hello, World!</h1>
+        <p>This is a paragraph.</p>
+    </body>
+</html>
+
+<css 코드예제>
+h1 {
+    color: blue;
+    font-size: 24px;
+}
+
+p {
+    color: green;
+    font-size: 16px;
+}
+
+
+
+
+            - 렌더 트리 생성 : 브라우저는 DOM과 CSSOM을 결합하여 렌더 트리(Render Tree)를 생성?
+            - 레이아웃(또는 리플로우) : 렌더 트리가 생성되면 브라우저는 각 요소의 크기와 위치를 계산합니다. 
+                                    이 과정을 레이아웃 또는 리플로우(Reflow)라고 합니다. 
+                                    레이아웃 단계에서는 요소의 위치와 크기를 결정하여 페이지의 전체 레이아웃을 구성합니다.
+            - 페인팅(또는 래스터라이즈) : 레이아웃이 완료되면, 브라우저는 각 요소를 화면에 그리는 페인팅(Painting) 또는 래스터라이즈(Rasterize) 과정을 수행합니다. 
+                                    이 단계에서 요소의 색상, 테두리, 그림자 등 스타일이 적용됩니다.
+                                    1. 페인팅 또는 래스터라이즈는 웹 브라우저에서 화면에 보이는 요소들을 실제 화면에 그리는 과정을 의미
+                                    2. 래스터라이즈는 벡터 그래픽이나 기타 비트맵이나 픽셀 이미지를 그려주는 과정을 말합니다. 
+                                        이것은 주어진 화면에 대한 픽셀을 결정하는 데 사용되며, 각 요소의 스타일을 기반으로 픽셀이 색칠
+                                        - 레이아웃(Reflow): 브라우저는 요소의 크기와 위치를 결정하기 위해 레이아웃 단계를 수행합니다. 
+                                                        이 과정에서는 요소의 크기, 위치, 텍스트의 줄 바꿈 등을 계산
+                                        - 페인팅(Paint): 레이아웃이 완료되면 브라우저는 화면에 요소를 그리는 페인팅 과정을 시작합니다. 
+                                                        각 요소의 스타일을 적용하고, 픽셀을 색칠하여 화면에 보이도록 합니다.
+                                        - 컴포지팅(Compositing): 여러 요소가 화면에 그려지면 브라우저는 이를 합성하여 최종 화면을 생성하는 컴포지팅 단계를 수행합니다. 
+                                                                이 단계에서는 각 요소의 레이어를 결합하여 최종 렌더링된 화면을 생성
+
+
+
+
+            - 컴포지팅 : 마지막으로, 브라우저는 여러 레이어를 결합하여 최종적으로 화면에 표시합니다. 
+                        컴포지팅(Compositing) 단계는 특히 CSS 애니메이션이나 트랜스폼(transform) 효과가 적용된 요소가 있을 때 중요
+            <성능최적화>
+                1. CSS 파일을 최소화하고 병합 : 여러 CSS 파일을 하나로 병합하고, 필요 없는 스타일 규칙을 제거하여 CSS 파일 크기를 줄입니다.
+                2. 필요한 자바스크립트만 로드: 페이지 로드 시 반드시 필요한 자바스크립트만 로드하고, 나머지는 지연 로드 또는 비동기 로드를 사용합니다.
+                3. 이미지 최적화: 이미지 파일 크기를 줄이고, 적절한 포맷과 해상도를 사용합니다.
+                4. 페인트 및 리플로우 최소화: 자바스크립트 코드에서 DOM을 조작할 때 페인트와 리플로우를 최소화하도록 코드를 최적화합니다.
+        
+        
+        http? https프로토콜? url? dns?
+            
+
+
+
+
+<코드 예제>
+ <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>JavaScript Example</title>
+    </head>
+    <body>
+        <h1 id="title">Welcome</h1>
+        <button onclick="changeTitle()">Click me</button>
+
+        <script>
+            function changeTitle() {
+                document
+                    .getElementById('title')
+                    .textContent = 'Hello, World!';
+            }
+        </script>
+    </body>
+</html>
+
+<렌더링하는 과정 코드 예제>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: blue;
+        }
+        p {
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <p>This is a simple web page.</p>
+</body>
+</html>
+
+<html 파싱과 dom생성 예제>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Page</title>
+    <style> ... </style>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <p>This is a simple web page.</p>
+</body>
+</html>
+
+<css파싱과 cssom생성>
+body {
+    font-family: Arial, sans-serif;
+}
+h1 {
+    color: blue;
+}
+p {
+    color: gray;
+}
+
