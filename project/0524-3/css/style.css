@@ -1,0 +1,136 @@
+* {
+    /* border: 1px solid yellowgreen */
+}
+.body{
+    display: none;
+    justify-content: center;
+}
+.count{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    overflow: scroll;
+}
+.menu-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    overflow: hidden;
+}
+.addmenu{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    overflow: scroll;
+
+}
+#menuname{
+    padding: 10px;
+    align-items: center; 
+    width: 100px;
+    text-align: center;
+}
+#price{
+    padding: 10px;
+    align-items: center; 
+    width: 100px;
+    text-align: center;
+}
+#quantity{
+    padding: 10px;
+    align-items: center; 
+    width: 100px;
+    text-align: center;
+}
+
+#total-price{
+    padding: 10px;
+    align-items: center; 
+    width: 100px;
+    text-align: center;
+}
+.coffee{
+    padding: 10px;
+    /* border: 1px solid red; */
+    width: 100px; /* 각 coffee 요소의 너비 설정 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+#parent{
+    align-items: center; 
+}
+.space{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.count-all{
+  width: 600px;
+  height: 155px;
+  border: 1px solid red;
+}
+.total{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.total-price{
+    font-size: 70px;
+    padding: 10px;
+}
+.total-price-align{
+    padding: 10px;
+    font-size: 100px;
+    font-weight: 600;
+    color: #22423D;
+}
+#pay{
+    padding: 10px;
+}
+.allCount{
+    
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: #22423D;
+}
+
+.coffe{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.menu{
+    margin-top: 50px;
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: #22423D;
+}
+.coffescreen{
+    display: flex;
+}
+.coffe-img{
+    padding-bottom: 10%;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border: 0;
+    
+}
+.coffe-img img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+.menuname{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+    
+}

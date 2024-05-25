@@ -17,31 +17,36 @@
     overflow: hidden;
 }
 .addmenu{
-    /* display: flex;
+    display: flex;
     flex-direction: row;
     justify-content: center;
-    overflow: scroll; */
+    overflow: scroll;
 
 }
 #menuname{
     padding: 10px;
     align-items: center; 
+    width: 100px;
+    text-align: center;
 }
 #price{
     padding: 10px;
     align-items: center; 
-    
+    width: 100px;
+    text-align: center;
 }
 #quantity{
     padding: 10px;
     align-items: center; 
+    width: 100px;
+    text-align: center;
 }
-#align{
-    align-items: center;
-}
+
 #total-price{
     padding: 10px;
     align-items: center; 
+    width: 100px;
+    text-align: center;
 }
 .coffee{
     padding: 10px;
@@ -60,7 +65,7 @@
 }
 .count-all{
   width: 600px;
-  height: 700px;
+  height: 400px;
   border: 1px solid red;
   overflow: scroll;
 }
